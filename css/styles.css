@@ -1,0 +1,218 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 20;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+   background: linear-gradient(135deg, #A3BFFA 0%, #2C497F 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Profile card container */
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(90, 82, 175, 0.1);
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(59, 56, 56, 0.15);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header section */
+.profile-header {
+background: linear-gradient(135deg, #4C6EF5 0%, #bcc4e2 100%);
+  color: rgb(80, 86, 94);
+  text-align: center;
+  padding: 30px 20px;
+  transition: background 0.5s ease;
+}
+
+.name {
+  font-size: 2.5em;
+  font-weight: 300;
+  margin-bottom: 0px;
+}
+
+.title {
+  font-size: 1.3em;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Content section */
+.profile-content {
+  padding: 25px;
+}
+
+/* Sections */
+.about-section,
+.skills-section,
+.contact-section {
+  margin-bottom: 25px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.about-section { animation-delay: 0.2s; }
+.skills-section { animation-delay: 0.4s; }
+.contact-section { animation-delay: 0.6s; }
+
+/* Headings */
+h2 {
+  color: #7f818c;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 20;
+  left: 20;
+  width: 20;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Text styling */
+p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+/* Skills list */
+.skills-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.skill-item {
+  background: #f8f9fa;
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-align: center;
+  color: #555;
+  font-size: 0.9em;
+  border-left: 3px solid #667eea;
+  transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover { 
+  transform: translateY(-2px) scale(1.05); 
+  background: linear-gradient(135deg, #667EEA 0%, #4C6EF5 100%); 
+  color: white; 
+  box-shadow: 0 5px 15px rgba(102,126,234,0.3); }
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2C497F 0%, #667EEA 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-outline:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(135deg, #2C497F 0%, #667EEA 100%);
+  color: white;
+}
+
+/* Simple Floating Shapes */
+.floating-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.3;
+  animation: floatShape 10s infinite ease-in-out;
+}
+
+/* Circle shape */
+.circle-shape {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(26, 26, 90, 0.2);
+  top: 5%;
+  left: 10%;
+}
+
+/* Triangle shape */
+.triangle-shape {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid rgba(1, 2, 7, 0.3);
+  bottom: 10%;
+  right: 15%;
+}
+
+/* Float animation */
+@keyframes floatShape {
+  0% { transform: translateY(100px) scale(0.8); }
+  50% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-100px) scale(0.8); }
+}
